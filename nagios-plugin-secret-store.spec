@@ -36,5 +36,5 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
-* May 22 2023 Viet Tran <tdviet@gmail.com>
+* Mon May 22 2023 Viet Tran <tdviet@gmail.com>
 - First release
