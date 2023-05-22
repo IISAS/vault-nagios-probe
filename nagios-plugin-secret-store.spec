@@ -27,7 +27,7 @@ give corresponding error or warning message.
 rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT/usr/libexec/argo-monitoring/probes/nagios-plugin-secret-store/
 cp usr/libexec/argo-monitoring/probes/nagios-plugin-secret-store/nagios-plugin-secret-store.sh  $RPM_BUILD_ROOT/usr/libexec/argo-monitoring/probes/nagios-plugin-secret-store/
-chomd a+x $RPM_BUILD_ROOT/usr/libexec/argo-monitoring/probes/nagios-plugin-secret-store/nagios-plugin-secret-store.sh
+chmod a+x $RPM_BUILD_ROOT/usr/libexec/argo-monitoring/probes/nagios-plugin-secret-store/nagios-plugin-secret-store.sh
 
 %files
 /usr/libexec/argo-monitoring/probes/nagios-plugin-secret-store/nagios-plugin-secret-store.sh
