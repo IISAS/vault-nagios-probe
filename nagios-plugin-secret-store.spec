@@ -9,7 +9,7 @@ Source0:        %{name}-%{version}.tar.gz
 
 BuildArch:      noarch
 #BuildRequires:  
-Requires:       bash,bind-utils,curl
+Requires:       bash,curl
 
 %description
 This is a script for monitoring status of Secret Store service. The script
