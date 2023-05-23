@@ -7,7 +7,7 @@ HEALTH_CHECK_API="v1/sys/health"
 # Timeout value is given for compatibility
 # The probe should finish within few seconds, so not real use
 
-TIMEOUT=100
+TIMEOUT=10
 
 
 # Usage info
@@ -29,7 +29,7 @@ test_secret_store() {
 
 HEALTH_CHECK_URL=$SERVICE_URL$HEALTH_CHECK_API
 
-return_value=$(curl --head --location --connect-timeout 5 --write-out %{http_code} --silent --output /dev/null $HEALTH_CHECK_URL)
+return_value=$(curl --head --location --connect-timeout $TIMEOUT --write-out %{http_code} --silent --output /dev/null $HEALTH_CHECK_URL)
 return_code=$?
 
 # Printing debug info
@@ -56,6 +56,12 @@ elif (($return_code == 7)); then
         exit 2
 elif (($return_code == 6)); then
         echo "Checking $HEALTH_CHECK_URL. Status CRITICAL - DNS error. Return code : $return_code. Return value : $return_value"
+        exit 2
+elif (($return_code == 28)); then
+        echo "Checking $HEALTH_CHECK_URL. Status CRITICAL - Connection timeout. Return code : $return_code. Return value : $return_value"
+        exit 2
+elif (($return_code == 60)); then
+        echo "Checking $HEALTH_CHECK_URL. Status CRITICAL - Certificate error. Return code : $return_code. Return value : $return_value"
         exit 2
 else
         echo "Checking $HEALTH_CHECK_URL. Status UNKNOWN - Return code : $return_code. Return value : $return_value"
