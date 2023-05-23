@@ -9,11 +9,10 @@ at [here](https://vault.docs.fedcloud.eu/intro.html).
 
 ## Probe test for Secret Store service
 
-Tee probe will perform test for Secret Store service via the 
+The probe will perform test for Secret Store service via the 
 [/sys/health](https://developer.hashicorp.com/vault/api-docs/system/health) endpoint 
-of Vault. The probes will check the return codes from the requests and 
+of Vault. The probe will check the return codes from the requests and 
 interpret them to Nagios OK/WARNING/CRITICAL/UNKNOWN  message accordingly.
-
 
 If the Secret Store service is working, the probe will give one of the 
 following messages and finish with exit code 0 (OK):
