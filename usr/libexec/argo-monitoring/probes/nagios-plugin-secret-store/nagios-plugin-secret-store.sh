@@ -75,6 +75,11 @@ case $key in
     shift # past argument
     shift # past value
     ;;
+    -t|--timeout)
+    TIMEOUT="$2"
+    shift # past argument
+    shift # past value
+    ;;
     -h|--help|help)
     show_help
     exit 0
